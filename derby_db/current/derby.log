@@ -1,0 +1,16 @@
+----------------------------------------------------------------
+Wed Jan 06 11:56:03 PST 2016:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.10.1.1 - (1458268): instance a816c00e-0152-1882-af19-00003cd7bd2a 
+on database directory /home/dan/work/triplea/derby_db/current/ta_users with class loader sun.misc.Launcher$AppClassLoader@63947c6b 
+Loaded from file:/home/dan/work/triplea/lib/derby-10.10.1.1.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_66-b17
+user.dir=/home/dan/work/triplea
+os.name=Linux
+os.arch=amd64
+os.version=4.2.0-23-generic
+derby.system.home=/home/dan/work/triplea/derby_db/current
+Database Class Loader started - derby.database.classpath=''
+----------------------------------------------------------------
+Wed Jan 06 11:56:17 PST 2016:
+Shutting down instance a816c00e-0152-1882-af19-00003cd7bd2a on database directory /home/dan/work/triplea/derby_db/current/ta_users with class loader sun.misc.Launcher$AppClassLoader@63947c6b 
