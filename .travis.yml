@@ -1,0 +1,15 @@
+dist: xenial
+if: tag is blank
+install: skip
+script:
+  - ./.travis/run_optipng
+  - ./.travis/zip_assets
+deploy:
+  provider: releases
+  api_key: "$BOT_AUTH_TOKEN"
+  file_glob: true
+  file: artifacts/*
+  skip_cleanup: true
+  name: $TRAVIS_BUILD_NUMBER
+  on: {tags: false, branch: master}
+

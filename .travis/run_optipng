@@ -1,0 +1,33 @@
+#!/bin/bash
+
+readonly REPO_URL="https://${BOT_AUTH_TOKEN}@github.com/triplea-game/assets.git"
+sudo apt install optipng
+
+git checkout  master
+git config --global user.email "tripleabuilderbot@gmail.com"
+git config --global user.name "tripleabuilderbot"
+
+
+
+## find all PNG files, run lossless compression
+## Filter output for errors, the line stating which file is being proccessed and percentage decrease
+find . -name "*png" \
+  | xargs optipng -preserve -o7 2>&1 \
+  | grep -iE "^** Processing|% decrease|error|warn"
+
+## Toggle flag to fail on non-zero exit code.
+## This will cause Travis to discontinue the build if we terminate with non-zero.
+set -e
+
+## If any files are changed, we'll commit them here
+## If we commit and push, that will trigger a new build.
+## If we trigger a new build, terminate the current build so we avoid deploying artifacts
+git commit . -m "Apply optipng compression on all png files" && \
+(
+  git remote add repo "$REPO_URL" &> /dev/null
+  git push --quiet --set-upstream repo master
+  echo "Committed compressed files. Terminating current build to abort deployment"
+  exit 1
+)
+
+exit 0
