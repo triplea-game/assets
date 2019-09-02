@@ -1,0 +1,14 @@
+#!/bin/bash
+
+## Releases will be created under the latest tag pushed, or Travis
+## will create a name for the tag automatically if there is none.
+## The tag name is part of the download URL, naming and pushing a 
+## tag keeps the download URL predictable and easier to update.
+
+readonly REPO_URL="https://${BOT_AUTH_TOKEN}@github.com/triplea-game/assets.git"
+git config --global user.email "tripleabuilderbot@gmail.com"
+git config --global user.name "tripleabuilderbot"
+
+git tag "$TRAVIS_BUILD_NUMBER" -a -f -m "$TAG_VALUE"
+git push -q "$REPO_URL" --tags
+
