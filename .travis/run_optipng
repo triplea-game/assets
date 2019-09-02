@@ -8,7 +8,6 @@ git config --global user.email "tripleabuilderbot@gmail.com"
 git config --global user.name "tripleabuilderbot"
 
 
-
 ## find all PNG files, run lossless compression
 ## Filter output for errors, the line stating which file is being proccessed and percentage decrease
 find . -name "*png" \
@@ -24,8 +23,7 @@ set -e
 ## If we trigger a new build, terminate the current build so we avoid deploying artifacts
 git commit . -m "Apply optipng compression on all png files" && \
 (
-  git remote add repo "$REPO_URL" &> /dev/null
-  git push --quiet --set-upstream repo master
+  git push --quiet "$REPO_URL" master
   echo "Committed compressed files. Terminating current build to abort deployment"
   exit 1
 )
