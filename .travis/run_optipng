@@ -10,7 +10,7 @@ git config --global user.name "tripleabuilderbot"
 
 ## find all PNG files, run lossless compression
 ## Filter output for errors, the line stating which file is being proccessed and percentage decrease
-find . -name "*png" \
+find . -name "*.png" \
   | xargs optipng -preserve -o7 2>&1 \
   | grep -iE "^** Processing|% decrease|error|warn"
 
