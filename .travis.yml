@@ -1,9 +1,6 @@
 dist: xenial
-if: tag is blank
+if: tag is blank and branch = master
 install: skip
-branches:
-  only:
-    - master
 script:
   - ./.travis/run_optipng
   - ./.travis/zip_assets
