@@ -2,6 +2,22 @@
 Repository for binary asset files (sound files, images, installer files). These files will be used by the 
 game in one way or another, typically packaged with it when the installer is built.
 
+## Git LFS
+```
+sudo apt install git-lfs
+```
+
+### Init git lfs (one-time)
+
+```
+git lfs install
+git lfs track *.tar.gz
+git add .gitattributes
+```
+
+Docs: https://git-lfs.github.com/
+
+
 
 ## Packaging windows 32 bit JRE
 
