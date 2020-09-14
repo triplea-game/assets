@@ -12,6 +12,7 @@ git config --global user.name "tripleabuilderbot"
 ## Add a '1' prefix to the build number to avoid
 ## collisions. A travis migration to travic-ci.com
 ## reset the build numbers.
-git tag "1$TRAVIS_BUILD_NUMBER" -a -f -m "$TAG_VALUE"
+RELEASE_NUMBER="1$TRAVIS_BUILD_NUMBER"
+git tag "$RELEASE_NUMBER" -a -f -m "$RELEASE_NUMBER"
 git push -q "$REPO_URL" --tags
 
