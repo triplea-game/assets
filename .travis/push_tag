@@ -9,10 +9,11 @@ readonly REPO_URL="https://${BOT_AUTH_TOKEN}@github.com/triplea-game/assets.git"
 git config --global user.email "tripleabuilderbot@gmail.com"
 git config --global user.name "tripleabuilderbot"
 
-## Add a '1' prefix to the build number to avoid
-## collisions. A travis migration to travic-ci.com
-## reset the build numbers.
+## Add a '2' prefix to increment the build number.
+## The build numbers are out of order, the '2' will ensure
+## the latest tag is actually the latest build
+
 RELEASE_NUMBER="1$TRAVIS_BUILD_NUMBER"
-git tag "$RELEASE_NUMBER" -a -f -m "$RELEASE_NUMBER"
+git tag "2$RELEASE_NUMBER" -a -f -m "2$RELEASE_NUMBER"
 git push -q "$REPO_URL" --tags
 
