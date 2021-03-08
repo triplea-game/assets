@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -eu
+set -eux
 (cd game_headed_assets || exit 1; zip -r game_headed_assets.zip -- *)
 
 mkdir -p artifacts/

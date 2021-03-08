@@ -1,0 +1,27 @@
+name: Post zipped game-headed assets to github releases
+on: 
+  push: 
+    branches: [master]
+jobs:
+  build:
+    name: zip and upload assets
+    runs-on: Ubuntu-20.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: set build version variables
+        run: |
+          BUILD_NUMBER=$((${{ github.run_number }} + 40))
+          echo "version=$BUILD_NUMBER" | tee -a $GITHUB_ENV
+      - name: zip game-headed assets
+        run: .build/zip_assets
+      - name: Create Github Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: artifacts/*
+          tag: ${{ env.version }}
+          name: ${{ env.version }}
+          prerelease: false
+          commit: master
+          token: ${{ secrets.GITHUB_TOKEN }}
+
