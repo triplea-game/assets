@@ -1,1 +1,0 @@
-install4j/install4j_linux-x64_11_0_3.sh filter=lfs diff=lfs merge=lfs -text
