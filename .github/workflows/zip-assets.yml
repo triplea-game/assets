@@ -1,7 +1,7 @@
 name: Post zipped game-headed assets to github releases
 on: 
   push: 
-    branches: [master]
+    branches: [main]
 jobs:
   build:
     name: zip and upload assets
