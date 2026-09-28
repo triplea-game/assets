@@ -22,6 +22,6 @@ jobs:
           tag: ${{ env.version }}
           name: ${{ env.version }}
           prerelease: false
-          commit: master
+          commit: main
           token: ${{ secrets.GITHUB_TOKEN }}
 
